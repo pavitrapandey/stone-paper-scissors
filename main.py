@@ -1,5 +1,34 @@
 import random
 
+stone = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+ascii_art = {1: stone, 0: paper, -1: scissors}
+
 while True:
     youStr = input('''Enter Your Choice 
 for Stone  press 1
@@ -11,7 +40,9 @@ for Scissor press 3\n''')
     computerStr = random.choice(list(youDict.keys()))
     computer = youDict[computerStr]
     you = youDict[youStr]
-    print(f"You Chose {reverseDict[you]}\nComputer Chose {reverseDict[computer]}")
+
+    print(f"\nYou Chose:\n{ascii_art[you]}")
+    print(f"Computer Chose:\n{ascii_art[computer]}")
 
     if computer == you:
         print("IT's a DRAW")
